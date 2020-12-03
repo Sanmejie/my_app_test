@@ -5,6 +5,7 @@ __pycache__/
 
 #Data
 Data/data.yml
+.svn/
 
 # C extensions
 *.so
