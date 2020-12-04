@@ -6,7 +6,7 @@ __pycache__/
 #sensitivity Data
 .svn/
 report/
-
+.idea/
 
 # C extensions
 *.so
