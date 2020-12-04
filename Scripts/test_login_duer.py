@@ -1,5 +1,4 @@
 import pytest, sys, os
-
 sys.path.append(os.getcwd())
 from Page.login_page import Login_Page
 from Base.init_driver import get_driver
@@ -95,7 +94,7 @@ class Test_Login:
                 logger.debug("登录失败toast：{}".format(fail_msg))
                 if fail_msg:
                     assert fail_msg == expect_message
-                    logger.success("断言成功：{}=={}".format(fail_msg,expect_message))
+                    logger.success("断言成功：{}=={}".format(fail_msg, expect_message))
                 else:
                     assert False
                 self.LP_obj.login_back_page()
@@ -105,6 +104,7 @@ class Test_Login:
                 self.LP_obj.error_dispose(e)
                 sleep(3)
                 assert False
+
 
 '''
 allure generate report/ -o report/html

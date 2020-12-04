@@ -46,24 +46,16 @@ E:.
 ![image-20201204105955970](https://i.loli.net/2020/12/04/f9TMuESJcXav5yr.png)
 
 ###  test_login script 
-
-
+:param tag: 1 标记登陆成功用例   2 标记账号不存在   3 标记登录失败
 
 ##### 问题
 
-偶现点击确定无反应
 
-成功后没有退出首页 
 
-2020-12-04 14:37:32.702 | ERROR    | my_app_test.Scripts.test_login:test_login_page:64 - 'Login_Page' object has no attribute 'keyevent'
+##### 更新记录：
 
-2326 账号成功
+2020年12月5日05:28:20					完成test_login 测试流程
 
-4010 账号不存在
-
-不存在的账号没有后退成功
-
-188888账号是注册过的账号
 
 
 
