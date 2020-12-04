@@ -1,12 +1,8 @@
 from appium import webdriver
-import os
-from loguru import logger
 
 
 def get_driver():
     """
-    :param pac: 包名
-    :param act: 启动名
     :return:
     """
     desired_caps = {}

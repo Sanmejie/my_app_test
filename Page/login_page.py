@@ -12,6 +12,7 @@ class Login_Page(Base):
         # 点击首页的登录按钮
         logger.debug("首页的登录按钮")
         self.click_element(Page.sy_login_btn_XPATH)
+
     #
     # def click_login_sign_btn(self):
     #     # 点击个人中心登录按钮
@@ -45,7 +46,7 @@ class Login_Page(Base):
         sleep(1)
 
         self.click_element(Page.cancel_XPATH)
-        sleep(2) #
+        sleep(2)  #
         self.click_element(Page.login_back_ID)
 
     def login_back_page(self):
@@ -62,14 +63,14 @@ class Login_Page(Base):
         # 点击确定按钮
         self.click_element(Page.queding_XPATH)
         # 点击右上角按钮
-        sleep(2) #
+        sleep(2)  #
         self.click_element(Page.login_back_ID)
 
-    def error_dispose(self,e):
-        '''
+    def error_dispose(self, e):
+        """
 
         :param e: 异常信息
         :return:
-        '''
+        """
         logger.error(e)
         self.error_screenshot(e)

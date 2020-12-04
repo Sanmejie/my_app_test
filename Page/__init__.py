@@ -4,17 +4,22 @@ from selenium.webdriver.common.by import By
     首页
 """
 # 首页登录列表
-sy_login_lsit=['登录/注册','体验课程','小学课程','初中课程','高中课程','专题课程','作业辅导','模拟考试','直播课堂','订购/激活']
+sy_login_list = ['登录/注册', '体验课程', '小学课程', '初中课程', '高中课程', '专题课程', '作业辅导', '模拟考试', '直播课堂', '订购/激活']
 
-# sy_login_lsit_element=
-def sy_login_lsit_fun():
-    '''
+
+# sy_login_list_element=
+def sy_login_list_fun():
+    """
     :return: 首页登录xpath定位列表
-    '''
-    sy_login_lsit_element=[]
-    for i in sy_login_lsit:
-        sy_login_lsit_element.append((By.XPATH, "//android.widget.TextView[@resource-id='com.deskmateones:id/tv_home_top' and @text="+str(i)+"]"))
-    return sy_login_lsit_element
+    """
+    sy_login_list_element = []
+    for i in sy_login_list:
+        sy_login_list_element.append((By.XPATH,
+                                      "//android.widget.TextView[@resource-id='com.deskmateones:id/tv_home_top' and "
+                                      "@text=" + str(
+                                          i) + "]"))
+    return sy_login_list_element
+
 
 # 首页登录按钮
 sy_login_btn_XPATH = (
@@ -64,17 +69,23 @@ ty_gx_btn_XPATH = (By.XPATH, "//android.widget.TextView[@text='国学']")
 '''
 小学课程--版本
 '''
-xx_course_versions_list= ['人教版','苏教版','鲁教版','北师大','浙教版','湘教版','冀教版','鄂教版','西师大','外研社','语文S版','沪教版','教科版','青岛版','青岛(五四)','人教(五四)']
+xx_course_versions_list = ['人教版', '苏教版', '鲁教版', '北师大', '浙教版', '湘教版', '冀教版', '鄂教版', '西师大', '外研社', '语文S版', '沪教版', '教科版',
+                           '青岛版', '青岛(五四)', '人教(五四)']
+
 
 def xx_course_versions_lsit_fun():
-    '''
+    """
     循环操作小学课程版本
     :return:
-    '''
-    xx_course_lsit_versions_element=[]
+    """
+    xx_course_lsit_versions_element = []
     for i in xx_course_grade_list:
-        xx_course_lsit_versions_element.append((By.XPATH, "//android.widget.TextView[@resource-id='com.deskmateones:id/tv_versions' and @text="+str(i)+"]"))
+        xx_course_lsit_versions_element.append((By.XPATH,
+                                                "//android.widget.TextView["
+                                                "@resource-id='com.deskmateones:id/tv_versions' and @text=" + str(
+                                                    i) + "]"))
     return xx_course_lsit_versions_element
+
 
 # 人教版
 xx_course_versions_rj_XPATH = (
@@ -128,17 +139,22 @@ xx_course_versions_rjws_XPATH = (
 小学课程--选择年级
 '''
 # 小学课程-年级列表
-xx_course_grade_list=['一年级','二年级','三年级','四年级','五年级','六年级']
+xx_course_grade_list = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级']
+
 
 def xx_course_grade_lsit_fun():
-    '''
+    """
     循环操作小学年级
     :return:
-    '''
-    xx_course_lsit_grade_element=[]
+    """
+    xx_course_lsit_grade_element = []
     for i in xx_course_grade_list:
-        xx_course_lsit_grade_element.append((By.XPATH, "//android.widget.TextView[@resource-id='com.deskmateones:id/tv_versions' and @text="+str(i)+"]"))
+        xx_course_lsit_grade_element.append((By.XPATH,
+                                             "//android.widget.TextView[@resource-id='com.deskmateones:id/tv_versions"
+                                             "' and @text=" + str(
+                                                 i) + "]"))
     return xx_course_lsit_grade_element
+
 
 # 一年级
 xx_course_grade_one_XPATH = (
@@ -179,25 +195,29 @@ login_back_ID = (By.ID, "com.deskmateones:id/iv_title_back")
 
 '''退出登录页'''
 # 修改密码
-unlogin_uppassword_XPATH =(By.XPATH, "//android.widget.Button[@resource-id='com.deskmateones:id/bt_back_pwd' and @text='修改密码']")
+unlogin_uppassword_XPATH = (
+    By.XPATH, "//android.widget.Button[@resource-id='com.deskmateones:id/bt_back_pwd' and @text='修改密码']")
 # 退出登录
-unlogin_unlogin_XPATH = (By.XPATH, "//android.widget.Button[@resource-id='com.deskmateones:id/bt_back_login' and @text='退出登录']")
+unlogin_unlogin_XPATH = (
+    By.XPATH, "//android.widget.Button[@resource-id='com.deskmateones:id/bt_back_login' and @text='退出登录']")
 # 详情
-unlog_details_ID =(By.ID, "com.deskmateones:id/tv_details")
+unlog_details_ID = (By.ID, "com.deskmateones:id/tv_details")
 
 # 确定
-queding_XPATH = (By.XPATH, "//android.widget.Button[@resource-id='com.deskmateones:id/btn_one2one_positive' and @text='确定']")
+queding_XPATH = (
+    By.XPATH, "//android.widget.Button[@resource-id='com.deskmateones:id/btn_one2one_positive' and @text='确定']")
 # 取消
-cancel_XPATH = (By.XPATH, "//android.widget.Button[@resource-id='com.deskmateones:id/btn_one2one_cancel' and @text='取消']")
+cancel_XPATH = (
+    By.XPATH, "//android.widget.Button[@resource-id='com.deskmateones:id/btn_one2one_cancel' and @text='取消']")
 # 注册
-register_XPATH = (By.XPATH,"//android.widget.Button[@resource-id='com.deskmateones:id/btn_one2one_positive' and @text='注册']")
-
+register_XPATH = (
+    By.XPATH, "//android.widget.Button[@resource-id='com.deskmateones:id/btn_one2one_positive' and @text='注册']")
 
 """
 专题课程
 """
 
-zt_course_list = ['英语专区','总复习课','作文辅导','应用题辅导','书法辅导','微课预习','学习方法','课文朗诵','生字听写','单词听写']
+zt_course_list = ['英语专区', '总复习课', '作文辅导', '应用题辅导', '书法辅导', '微课预习', '学习方法', '课文朗诵', '生字听写', '单词听写']
 
 # 英语专区
 zt_course_english_XPATH = (
