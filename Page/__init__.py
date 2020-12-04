@@ -19,7 +19,9 @@ def sy_login_lsit_fun():
 # 首页登录按钮
 sy_login_btn_XPATH = (
     By.XPATH, "//android.widget.TextView[@resource-id='com.deskmateones:id/tv_home_top' and @text='登录/注册']")
-print(sy_login_btn_XPATH)
+# 个人中心
+sy_personal_btn_XPATH = (
+    By.XPATH, "//android.widget.TextView[@resource-id='com.deskmateones:id/tv_home_top' and @text='个人中心']")
 # 体验课程
 sy_tycourse_btn_XPTH = (
     By.XPATH, "//android.widget.TextView[@resource-id='com.deskmateones:id/tv_home_top' and @text='体验课程']")
@@ -172,6 +174,8 @@ login_wjmm_Id = (By.ID, "com.deskmateones:id/tv_landing_wjmm")
 login_register_ID = (By.ID, "com.deskmateones:id/tv_landing_zhuce")
 # 百度一键登录
 login_baidu_ID = (By.ID, "com.deskmateones:id/but_baidu")
+# 右上角返回按钮
+login_back_ID = (By.ID, "com.deskmateones:id/iv_title_back")
 
 '''退出登录页'''
 # 修改密码
@@ -183,9 +187,10 @@ unlog_details_ID =(By.ID, "com.deskmateones:id/tv_details")
 
 # 确定
 queding_XPATH = (By.XPATH, "//android.widget.Button[@resource-id='com.deskmateones:id/btn_one2one_positive' and @text='确定']")
-
 # 取消
 cancel_XPATH = (By.XPATH, "//android.widget.Button[@resource-id='com.deskmateones:id/btn_one2one_cancel' and @text='取消']")
+# 注册
+register_XPATH = (By.XPATH,"//android.widget.Button[@resource-id='com.deskmateones:id/btn_one2one_positive' and @text='注册']")
 
 
 """

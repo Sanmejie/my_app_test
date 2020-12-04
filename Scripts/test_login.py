@@ -4,24 +4,35 @@ from Page.login_page import Login_Page
 from Base.init_driver import get_driver
 from Base.read_data import Op_Data
 from time import sleep
+from loguru import logger
+
+
 def get_data():
     # 读取返回数据
     data_list = []
     data = Op_Data("data.yml").read_yaml().get("Login_data")
     for i in data:
         for o in i.keys():
-            data_list.append((o,i.get(o).get("phone"),i.get(o).get("passwd"),
-                              i.get(o).get("get_mess"),i.get(o).get("expect_message"),
+            data_list.append((o, i.get(o).get("phone"), i.get(o).get("passwd"),
+                              i.get(o).get("get_mess"), i.get(o).get("expect_message"),
                               i.get(o).get("tag")))
     return data_list
+
+
 class Test_Login:
 
     def setup_class(self):
         # 实例化登陆对象
+        logger.info("调起同桌100")
+        os.system('adb shell am broadcast -a com.baidu.duer.query -e q "打开同桌100"')
         self.LP_obj = Login_Page(get_driver())
+        logger.info("调起同桌100")
+        os.system('adb shell am broadcast -a com.baidu.duer.query -e q "打开同桌100"')
+
+
         # 点击个人中心
-        sleep(5)
-        self.LP_obj.click_sy_login_btn()
+        # sleep(5)
+        # self.LP_obj.click_sy_login_btn()
 
     def teardown_class(self):
         self.LP_obj.driver.quit()
@@ -37,33 +48,56 @@ class Test_Login:
         :return:
         """
         # 点击登陆注册
-        self.LP_obj.click_sy_login_btn()
+        # logger.info("点击登录/注册")
+        # self.LP_obj.click_sy_login_btn()
         # 登陆操作
+        logger.info("登录相关操作")
+        self.LP_obj.click_sy_login_btn()
         self.LP_obj.login_input_page(username, passwd)
-        if tag:
+        if tag == 1:
             try:
                 # 获取登陆成功toast
                 suc_msg = self.LP_obj.get_toast(get_mess)
-                # # 获取我的状态
-                # order_status = self.LP_obj.if_my_order_status()
+                logger.info("获取toast{}".format(suc_msg))
                 # 退出登录
+                logger.info("退出登录")
                 self.LP_obj.logout_page()
                 assert suc_msg == expect_message
 
             except Exception as e:
-                print(e)
+                # print(e)
+                logger.error(e)
                 # 关闭登陆信息输入页面
+                self.LP_obj.login_back_page()
+                sleep(5)
+                assert False
+
+        elif tag == 2:
+            try:
+                # 获取登陆成功toast
+                suc_msg = self.LP_obj.get_toast(get_mess)
+                logger.info("获取toast{}".format(suc_msg))
+                # 退出登录
+                logger.info("点击取消")
                 self.LP_obj.login_close_page()
+                assert suc_msg == expect_message
+
+            except Exception as e:
+                logger.error(e)
                 assert False
         else:
             try:
                 # 获取登陆失败toast消息
                 fail_msg = self.LP_obj.get_toast(get_mess)
+                logger.info("失败toast{}".format(fail_msg))
                 if fail_msg:
                     assert fail_msg == expect_message
                 else:
-                    assert False
-            finally:
-                self.LP_obj.login_close_page()
-
-
+                    sleep(3)
+                self.LP_obj.login_back_page()
+                assert False
+            except Exception as e:
+                logger.error(e)
+                self.LP_obj.login_back_page()
+                sleep(3)
+                assert False

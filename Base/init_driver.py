@@ -1,4 +1,6 @@
 from appium import webdriver
+import os
+from loguru import logger
 
 
 def get_driver():
@@ -32,4 +34,5 @@ def get_driver():
     # 声明driver驱动 - session ？？？
     # 接口地址：http://127.0.0.1:4723/wd/hub  POST
     driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)
+
     return driver
