@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from loguru import logger
 from time import sleep
-import sys,os
+import sys,os,time
 print(os.path.abspath(os.path.join(os.getcwd(), 'Log/')))
 logger.add(sys.stderr, format='{time} {level} {message}', filter='my module', level='INFO')
 logger.add(os.path.abspath(os.path.join(os.getcwd(), 'Log/'))+"\\file_{time}.log", encoding="utf-8", rotation="500 MB")
@@ -66,9 +66,16 @@ class Base:
         input_text.clear()
         input_text.send_keys(text)
 
+    def error_screenshot(self,mes=None):
+
+        timestr = time.strftime("%Y-%m-%d_%H_%M_%S")
+        path_name=os.path.abspath(os.path.join(os.getcwd(), 'Img/'))+timestr+str(mes)+".png"
+        self.driver.get_screenshot_as_file(path_name)
+        logger.debug("截图成功：{}".format(path_name))
+
     def put_keypad(self,num):
         # 物理按键方法
-        self.keyevent(num)
+        self.driver.keyevent(num)
 
     def get_toast(self, message):
         # 获取提示消息
