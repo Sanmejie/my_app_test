@@ -2,7 +2,8 @@ import os
 import sys
 import time
 from time import sleep
-
+from os.path import dirname
+sys.path.append(dirname(dirname(__file__)))
 from loguru import logger
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait

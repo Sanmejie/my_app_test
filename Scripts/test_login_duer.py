@@ -1,13 +1,13 @@
+# from os.path import dirname
+import os,sys,pytest
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from Page.login_page import Login_Page
 from Base.init_driver import get_driver
 from Base.read_data import Op_Data
 from time import sleep
 from loguru import logger
-import os
-import pytest
-import sys
 
-sys.path.append(os.getcwd())
+# sys.path.append(os.getcwd())
 
 
 def get_data():
